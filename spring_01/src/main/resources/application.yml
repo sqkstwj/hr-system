@@ -15,8 +15,8 @@ spring:
 aliyun:
   oss:
     endpoint: https://oss-cn-beijing.aliyuncs.com
-    access-key-id: LTAI5t8cXmApqKdqMxSCfv8g
-    access-key-secret: IY9r4GBTnjHmhrCWqnCk2QNdF6TxWg
+    access-key-id: ${OSS_ACCESS_KEY_ID:your-access-key-id}
+    access-key-secret: ${OSS_ACCESS_KEY_SECRET:your-access-key-secret}
     bucket-name: big-eventhr
 
 mybatis-plus:
