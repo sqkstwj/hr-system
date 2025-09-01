@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.spring_01.mapper.UserMapper">
+
+
+    <!--查询用户基本信息（多表查询）-->
+    <select id="setUser" resultType="com.example.spring_01.pojo.UserI">
+        select `user`.id,email,user.mobile_phone,user.person_type,
+               user.sex,user.emp_no,user.leftreason,user.emp_status,
+               user.bossname,user.bossid,userpost.post_id,userpost.status,
+               userpost.userpostcode,position.full_name,t_s_depart.departname
+        from user join userpost on user.id=userpost.user_id,position,t_s_depart
+        where user.emp_no=#{id} and post_id=position.id and position.dept_id=t_s_depart.id
+    </select>
+
+    <select id="setUser1" resultType="com.example.spring_01.pojo.UserI">
+        select `user`.id,email,user.mobile_phone,user.person_type,
+               user.sex,user.emp_no,user.leftreason,user.emp_status,
+               user.bossname,user.bossid,userpost.post_id,userpost.status,
+               userpost.userpostcode,position.full_name,t_s_depart.departname
+        from user join userpost on user.id=userpost.user_id,position,t_s_depart
+        where post_id=position.id and position.dept_id=t_s_depart.id
+    </select>
+
+<!--
+用户的离职或复职
+-->
+    <update id="update">
+        update `user` set email=#{user.email},mobile_phone=#{user.mobilePhone} ,sex=#{user.sex},person_type=#{user.person_type},bossname=#{user.bossname},bossid=#{user.bossid},emp_status=#{user.empStatus},leftreason=#{user.leftreason},update_date=#{user.update_date} where id=#{user.id};
+    </update>
+
+
+
+
+
+
+
+
+    <!--&lt;!&ndash;用户的增加&ndash;&gt;
+    <insert id="insert">
+        insert into `user`(id,email,mobilePhone,create_name,sex,person_type,bossName,bossid,emp_status,create_date,emp_no,entryDate)
+        values (UUID(),#{email},#{mobilePhone},#{create_name},#{sex},#{person_type},#{bossName},#{bossId},#{emp_status},#{create_date},
+                (select a.emp_no from (select MAX(emp_no) as emp_no from user)a)+1,#{entryDate});
+    </insert>
+
+
+    &lt;!&ndash;用户的离职或是复职&ndash;&gt;
+    <update id="update">
+        update `user` set emp_status=#{emp_status},leftReason=#{leftReason},update_date=#{update_date} where id=#{id}
+    </update>
+-->
+
+
+</mapper>
