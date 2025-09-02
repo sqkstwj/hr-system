@@ -17,6 +17,6 @@ public interface PostTMapper extends BaseMapper<PostT> {
     /*@Insert("insert into `position`(shortname,fullname,createdate) values (#{shortname},#{fullname},#{createdate})")
     void insert(PostT postT);*/
 
-    @Update("update `position` set shortname=#{shortname},fullname=#{fullname},createdate=#{createdate} where id=#{id}")
+    @Update("update `position` set shortname=#{shortname},fullName=#{fullName},createDate=#{createDate} where id=#{id}")
     void update(PostT postT);
 }

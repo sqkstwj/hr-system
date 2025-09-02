@@ -13,7 +13,7 @@ public interface UserMapper extends BaseMapper<User>{
     List<UserI> setUser(String id);
     void update(@Param("user") User user);
 
-    /*@Select("select email,sex,emp_status,emp_no from user")*/
+    /*@Select("select email,sex,empStatus,empNo from user")*/
     List<UserI> setUser1();
 
 

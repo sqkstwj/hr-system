@@ -13,9 +13,9 @@ public interface UserPMapper {
     @Delete("delete from userpost where id=#{id}")
     void deleteById(String id);
 
-    //@Insert("insert into userpost(userid,postid,createtime) values (#{userid},#{postid},#{createtime})")
+    //@Insert("insert into userpost(userId,postId,createTime) values (#{userId},#{postId},#{createTime})")
     void insert(@Param("userP") UserP userP);
 
-    //@Update("update `userpost` set userid=#{userid},postid=#{postid},updatetime=#{updatetime} where id=#{id}")
+    //@Update("update `userpost` set userId=#{userId},postId=#{postId},updateTime=#{updateTime} where id=#{id}")
     void update(UserP userP);
 }
