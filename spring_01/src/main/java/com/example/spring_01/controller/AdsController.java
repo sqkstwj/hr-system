@@ -37,7 +37,7 @@ public class AdsController {
     private StringRedisTemplate stringRedisTemplate;
 
     @PostMapping("/register")
-    public Result register(@Pattern(regexp = "^\\S(5,18)$") String adsName,@Pattern(regexp = "^\\S(5,18)$") String password){
+    public Result register(@RequestParam @Pattern(regexp = "^\\S(5,18)$") String adsName,@RequestParam @Pattern(regexp = "^\\S(5,18)$") String password){
         Ads ads=adsService.findByAdsName(adsName);
         if(ads==null){
             adsService.register(adsName,password);
@@ -49,7 +49,7 @@ public class AdsController {
     }
 
     @PostMapping(value = "/login")
-    public Result<String> login(@Pattern(regexp = "^\\S(5,18)$") String adsName, @Pattern(regexp = "^\\S(5,18)$") String password){
+    public Result<String> login(@RequestParam @Pattern(regexp = "^\\S(5,18)$") String adsName, @RequestParam @Pattern(regexp = "^\\S(5,18)$") String password){
 
         Ads loginAds=adsService.findByAdsName(adsName);
         if(loginAds==null){
