@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @Slf4j
-
+@RequestMapping("/post")
 public class PostTContronller  {
     @Autowired
     private PostTService postTService;
@@ -24,6 +24,13 @@ public class PostTContronller  {
         List<PostT> postlist=postTService.list();
         return Result.success(postlist);
 
+    }
+
+    @GetMapping("/selectAll")
+    public Result selectAll(){
+        log.info("查询全部岗位数据");
+        List<PostT> postList = postTService.list();
+        return Result.success(postList);
     }
 /*
 * 根据id删除岗位

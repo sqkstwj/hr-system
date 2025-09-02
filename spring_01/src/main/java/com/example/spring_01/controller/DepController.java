@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 @Slf4j
 @RestController
+@RequestMapping("/depart")
 public class DepController {
     @Autowired
     private DepService depService;
@@ -23,6 +24,13 @@ public class DepController {
     @RequestMapping("/select1")
     public List<Dep>select1(){
         return depMapper.selectList(null);
+    }
+
+    @GetMapping("/selectAll")
+    public Result selectAll(){
+        log.info("查询全部部门数据");
+        List<Dep> deptList = depMapper.selectList(null);
+        return Result.success(deptList);
     }
 
 
