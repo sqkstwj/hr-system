@@ -24,9 +24,6 @@ spring:
       max-file-size: 100MB
       max-request-size: 100MB
 
-  profiles:
-    active: prod
-
 # 服务器配置
 server:
   port: 8080
