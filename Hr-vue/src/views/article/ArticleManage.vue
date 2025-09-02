@@ -3,7 +3,7 @@ import {
     Edit,
     Delete
 } from '@element-plus/icons-vue'
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 
 // const dialogVisible = ref(false)
 
@@ -17,45 +17,54 @@ import { reactive, ref } from 'vue'
 const articles = ref([
     {
         "id": "1",
-        "staffName":"11",
         "email": "美食",
-        "phone": "my",
-        "username": "2023-09-02 12:06:59",
+        "mobilePhone": "my",
+        "person_type": "2023-09-02 12:06:59",
         "sex": "2023-09-02 12:06:59",
-        "password": "2023-09-02 12:06:59",
-        "picture": "2023-09-02 12:06:59",
-        "postId": "2023-09-02 12:06:59",
-        "degree": "2023-09-02 12:06:59",
-        "marriage": "2023-09-02 12:06:59",
-        "work": "2023-09-02 12:06:59",
+        "empNo": "2023-09-02 12:06:59",
+        "leftreason": "2023-09-02 12:06:59",
+        "empStatus": "2023-09-02 12:06:59",
+        "bossname": "2023-09-02 12:06:59",
+        "bossid": "2023-09-02 12:06:59",
+        "postid": "2023-09-02 12:06:59",
+        "status": "2023-09-02 12:06:59",
+        "userpostcode": "2023-09-02 12:06:59",
+        "fullName": "2023-09-02 12:06:59",
+        "departname": "2023-09-02 12:06:59"
     },
     {
         "id": "1",
-        "staffName":"11",
         "email": "美食",
-        "phone": "my",
-        "username": "2023-09-02 12:06:59",
+        "mobilePhone": "my",
+        "person_type": "2023-09-02 12:06:59",
         "sex": "2023-09-02 12:06:59",
-        "password": "2023-09-02 12:06:59",
-        "picture": "2023-09-02 12:06:59",
-        "postId": "2023-09-02 12:06:59",
-        "degree": "2023-09-02 12:06:59",
-        "marriage": "2023-09-02 12:06:59",
-        "work": "2023-09-02 12:06:59",
+        "empNo": "2023-09-02 12:06:59",
+        "leftreason": "2023-09-02 12:06:59",
+        "empStatus": "2023-09-02 12:06:59",
+        "bossname": "2023-09-02 12:06:59",
+        "bossid": "2023-09-02 12:06:59",
+        "postid": "2023-09-02 12:06:59",
+        "status": "2023-09-02 12:06:59",
+        "userpostcode": "2023-09-02 12:06:59",
+        "fullName": "2023-09-02 12:06:59",
+        "departname": "2023-09-02 12:06:59"
     },
     {
         "id": "1",
-        "staffName":"11",
         "email": "美食",
-        "phone": "my",
-        "username": "2023-09-02 12:06:59",
+        "mobilePhone": "my",
+        "person_type": "2023-09-02 12:06:59",
         "sex": "2023-09-02 12:06:59",
-        "password": "2023-09-02 12:06:59",
-        "picture": "2023-09-02 12:06:59",
-        "postId": "2023-09-02 12:06:59",
-        "degree": "2023-09-02 12:06:59",
-        "marriage": "2023-09-02 12:06:59",
-        "work": "2023-09-02 12:06:59",
+        "empNo": "2023-09-02 12:06:59",
+        "leftreason": "2023-09-02 12:06:59",
+        "empStatus": "2023-09-02 12:06:59",
+        "bossname": "2023-09-02 12:06:59",
+        "bossid": "2023-09-02 12:06:59",
+        "postid": "2023-09-02 12:06:59",
+        "status": "2023-09-02 12:06:59",
+        "userpostcode": "2023-09-02 12:06:59",
+        "fullName": "2023-09-02 12:06:59",
+        "departname": "2023-09-02 12:06:59"
     },
 ])
 
@@ -68,13 +77,14 @@ const articleCategoryList1 = async () => {
 }
 const articleList=async ()=>{
 
-    console.log(uid.value)
     let result=await articleAddService2(uid.value);
+
     articles.value=result.data;
 }
 
 //articleList();
 articleCategoryList1();
+
 
 //控制添加分类弹窗
 const dialogVisible = ref(false)
@@ -82,49 +92,50 @@ const dialogVisible1 = ref(false)
 //添加分类数据模型
 const articleModel = ref({
     id: '',
-    staffName:'',
     email: '',
-    phone: '',
-    username: '',
+    mobilePhone: '',
+    person_type: '',
     sex: '',
-    password: '',
-    picture: '',
-    postId: '',
-    degree: '',
-    marriage: '',
-    work: '',
+    empNo: '',
+    leftreason: '',
+    empStatus: '',
+    bossname: '',
+    bossid: '',
+    postid: '',
+    status: '',
+    userpostcode: '',
+    fullName: '',
+    departname: ''
 })
 
 
 const articleModel1 = ref({
-    id: '',
-    staffName:'',
     email: '',
-    phone: '',
-    username: '',
+    mobilePhone: '',
+    person_type: '',
     sex: '',
-    password: '',
-    picture: '',
-    postId: '',
-    degree: '',
-    marriage: '',
-    work: '',
+    empStatus: '',
+    bossname: '',
+    bossid: '',
+    leftreason: ''
 })
 //添加分类表单校验
 const rules = {
-    postId: [
-        { required: true, message: '请输入', trigger: 'blur' },
+    postid: [
+        { required: true, message: '请输入岗位id', trigger: 'blur' },
     ],
-    work: [
-        { required: true, message: '请输入', trigger: 'blur' },
+    status: [
+        { required: true, message: '请输入状态', trigger: 'blur' },
     ]
 }
 
 const rules1 = {
-    postId: [
-        { required: true, message: '请输入正确的岗位', trigger: 'blur' },
+    email: [
+        { required: true, message: '请输入邮箱', trigger: 'blur' },
+    ],
+    sex: [
+        { required: true, message: '请输入性别', trigger: 'blur' },
     ]
-    
 }
 
 
@@ -147,23 +158,22 @@ const title = ref('')
 //展示编辑弹窗
 const showDialog = (row) => {
     dialogVisible1.value = true; title.value = '编辑用户信息'
-    articleModel1.value.staffName = row.staffName;
-    articleModel1.value.password = row.password;
+    //数据拷贝
     articleModel1.value.email = row.email;
-    articleModel1.value.phone = row.phone;
-    articleModel1.value.username = row.username;
+    articleModel1.value.mobilePhone = row.mobilePhone;
+    articleModel1.value.person_type = row.person_type;
     articleModel1.value.sex = row.sex;
-    articleModel1.value.postId = row.postId;
-    articleModel1.value.degree = row.degree;
-    articleModel1.value.marriage = row.marriage;
-    articleModel1.value.work = row.work;
+    articleModel1.value.empStatus = row.empStatus;
+    articleModel1.value.bossname = row.bossname;
+    articleModel1.value.bossid = row.bossid;
+    articleModel1.value.leftreason = row.leftreason;
+    //扩展id属性,将来需要传递给后台,完成分类的修改
     articleModel1.value.id = row.id
 }
 
 //编辑分类
 const updateCategory = async () => {
     //调用接口
-    console.log(articleModel1)
     let result = await articleCategoryUpdateService1(articleModel1.value);
 
     ElMessage.success(result.msg ? result.msg : '修改成功')
@@ -178,29 +188,25 @@ const updateCategory = async () => {
 //清空模型的数据
 const clearData = () => {
     articleModel.value.email = '';
-    articleModel.value.phone = '';
-    articleModel.value.username = '';
+    articleModel.value.mobilePhone = '';
+    articleModel.value.person_type = '';
     articleModel.value.sex = '';
-    articleModel.value.postId = '';
-    articleModel.value.degree = '';
-    articleModel.value.marriage = '';
-    articleModel.value.staffName = '';
-    articleModel.value.password = '';
-    articleModel.value.work = '';
+    articleModel.value.empStatus = '';
+    articleModel.value.bossname = '';
+    articleModel.value.bossid = '';
+    articleModel.value.leftreason = '';
 }
 
-// const clearData1 = () => {
-//     articleModel1.value.email = '';
-//     articleModel1.value.phone = '';
-//     articleModel1.value.username = '';
-//     articleModel1.value.sex = '';
-//     articleModel1.value.postId = '';
-//     articleModel1.value.degree = '';
-//     articleModel1.value.marriage = '';
-//     articleModel1.value.staffName = '';
-//     articleModel1.value.password = '';
-//     articleModel1.value.work = '';
-// }
+const clearData1 = () => {
+    articleModel1.value.email = '';
+    articleModel1.value.mobilePhone = '';
+    articleModel1.value.person_type = '';
+    articleModel1.value.sex = '';
+    articleModel1.value.empStatus = '';
+    articleModel1.value.bossname = '';
+    articleModel1.value.bossid = '';
+    articleModel1.value.leftreason = '';
+}
 
 //删除分类
 import { ElMessageBox } from 'element-plus'
@@ -239,6 +245,7 @@ const deleteCategory = (row) => {
 //     let result=await articleAddService2(uid);
 //     articles.value= result.data.items;
 // }
+
 // articleList();
 </script>
 <template>
@@ -253,26 +260,27 @@ const deleteCategory = (row) => {
         </template>
         <el-form inline>
             <el-form>
-                <el-input v-model="uid" placeholder="请输入员工id" ></el-input>
-                
+                <el-input v-model="uid" placeholder="请输入工号"></el-input>
                 <el-button type="primary" @click="articleList()">搜索</el-button>
                 <el-button type="primary" @click="articleCategoryList1()">返回</el-button>
             </el-form>
         </el-form>
-    
         <el-table :data="articles" style="width: 100%">
-            <el-table-column label="员工id" prop="id"></el-table-column>
-            <el-table-column label="员工姓名" prop="staffName"></el-table-column>
+            <el-table-column label="用户id" prop="id"></el-table-column>
             <el-table-column label="邮箱" prop="email"></el-table-column>
-            <el-table-column label="电话" prop="phone"> </el-table-column>
-            <el-table-column label="用户名" prop="username"></el-table-column>
+            <el-table-column label="电话" prop="mobilePhone"> </el-table-column>
+            <el-table-column label="级别" prop="person_type"></el-table-column>
             <el-table-column label="性别" prop="sex"></el-table-column>
-            <el-table-column label="密码" prop="password"></el-table-column>
-            <!-- <el-table-column label="照片" prop="picture"></el-table-column> -->
-            <el-table-column label="岗位id" prop="postId"></el-table-column>
-            <!-- <el-table-column label="级别" prop="degree"></el-table-column> -->
-            <el-table-column label="婚姻状况" prop="marriage"></el-table-column>
-            <el-table-column label="工作经历" prop="work"></el-table-column>
+            <el-table-column label="工号" prop="empNo"></el-table-column>
+            <el-table-column label="辞职原因" prop="leftreason"></el-table-column>
+            <el-table-column label="任岗状态" prop="empStatus"></el-table-column>
+            <el-table-column label="上级名称" prop="bossname"></el-table-column>
+            <el-table-column label="上级id" prop="bossid"></el-table-column>
+            <el-table-column label="状态" prop="status"></el-table-column>
+            <el-table-column label="岗位id" prop="postid"></el-table-column>
+            <el-table-column label="任岗编码" prop="userpostcode"></el-table-column>
+            <el-table-column label="职称" prop="fullName"></el-table-column>
+            <el-table-column label="部门" prop="departname"></el-table-column>
             <el-table-column label="操作" width="100">
                 <template #default="{ row }">
                     <el-button :icon="Edit" circle plain type="primary" @click="showDialog(row); clearData1()"></el-button>
@@ -291,31 +299,25 @@ const deleteCategory = (row) => {
                     <el-input v-model="articleModel.email" placeholder="请输入"></el-input>
                 </el-form-item>
                 <el-form-item label="电话">
-                    <el-input v-model="articleModel.phone" placeholder="请输入"></el-input>
+                    <el-input v-model="articleModel.mobilePhone" placeholder="请输入"></el-input>
                 </el-form-item>
                 <el-form-item label="性别">
                     <el-input v-model="articleModel.sex" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="用户名">
-                    <el-input v-model="articleModel.username" placeholder="请输入"></el-input>
-                </el-form-item>
                 <el-form-item label="级别">
-                    <el-input v-model="articleModel.degree" placeholder="请输入"></el-input>
+                    <el-input v-model="articleModel.person_type" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="婚姻状况">
-                    <el-input v-model="articleModel.marriage" placeholder="请输入"></el-input>
+                <el-form-item label="上级名称">
+                    <el-input v-model="articleModel.bossname" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="岗位id">
-                    <el-input v-model="articleModel.postId" placeholder="请输入"></el-input>
+                <el-form-item label="上级id">
+                    <el-input v-model="articleModel.bossid" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="员工姓名">
-                    <el-input v-model="articleModel.staffName" placeholder="请输入"></el-input>
+                <el-form-item label="任岗情况">
+                    <el-input v-model="articleModel.empStatus" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="密码">
-                    <el-input v-model="articleModel.password" placeholder="请输入"></el-input>
-                </el-form-item>
-                <el-form-item label="工作经历">
-                    <el-input v-model="articleModel.work" placeholder="请输入"></el-input>
+                <el-form-item label="辞职原因">
+                    <el-input v-model="articleModel.leftreason" placeholder="请输入"></el-input>
                 </el-form-item>
                 <!-- <el-form-item>
                         <el-button type="primary" @click="addArticle('已发布')">添加</el-button>
@@ -331,36 +333,29 @@ const deleteCategory = (row) => {
         </el-dialog>
         <el-dialog v-model="dialogVisible1" :title="title" width="30%">
             <el-form :model="articleModel1" :rules="rules1" label-width="100px" style="padding-right: 30px">
-                <el-form-item label="邮箱">
-                    <el-input v-model="articleModel1.email" placeholder="请输入"></el-input>
+                <el-form-item label="邮箱" >
+                    <el-input v-model="articleModel1.email"></el-input>
                 </el-form-item>
                 <el-form-item label="电话">
-                    <el-input v-model="articleModel1.phone" placeholder="请输入"></el-input>
+                    <el-input v-model="articleModel1.mobilePhone" placeholder="请输入"></el-input>
                 </el-form-item>
                 <el-form-item label="性别">
                     <el-input v-model="articleModel1.sex" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="用户名">
-                    <el-input v-model="articleModel1.username" placeholder="请输入"></el-input>
-                </el-form-item>
                 <el-form-item label="级别">
-                    <el-input v-model="articleModel1.degree" placeholder="请输入"></el-input>
+                    <el-input v-model="articleModel1.person_type" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="婚姻状况">
-                    <el-input v-model="articleModel1.marriage" placeholder="请输入"></el-input>
+                <el-form-item label="上级名称">
+                    <el-input v-model="articleModel1.bossname" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="岗位id">
-                    <el-input v-model="articleModel1.postId" minlength="1" maxlength="15" placeholder="请输入正确的岗位号"></el-input>
-                    
+                <el-form-item label="上级id">
+                    <el-input v-model="articleModel1.bossid" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="员工姓名">
-                    <el-input v-model="articleModel1.staffName" placeholder="请输入"></el-input>
+                <el-form-item label="任岗情况">
+                    <el-input v-model="articleModel1.empStatus" placeholder="请输入"></el-input>
                 </el-form-item>
-                <el-form-item label="密码">
-                    <el-input v-model="articleModel1.password" placeholder="请输入"></el-input>
-                </el-form-item>
-                <el-form-item label="工作经历">
-                    <el-input v-model="articleModel1.work" placeholder="请输入"></el-input>
+                <el-form-item label="辞职原因">
+                    <el-input v-model="articleModel1.leftreason" placeholder="请输入"></el-input>
                 </el-form-item>
             </el-form>
             <template #footer>

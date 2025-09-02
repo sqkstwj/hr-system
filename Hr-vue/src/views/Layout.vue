@@ -11,7 +11,7 @@ import {
 } from '@element-plus/icons-vue'
 import avatar from '@/assets/default.png'
 
-import {userInfoService,userInfoUpdateService} from '@/api/user.js'
+import {userInfoService} from '@/api/user.js'
 import useUserInfoStore from '@/stores/userInfo.js'
 import {useTokenStore} from '@/stores/token.js'
 const tokenStore = useTokenStore();
@@ -78,47 +78,17 @@ const handleCommand = (command)=>{
             <!-- element-plus的菜单标签 -->
             <el-menu active-text-color="#ffd04b" background-color="#a05050"  text-color="#fff"
                 router>
+                <el-menu-item index="/article/category">
+                    <el-icon>
+                        <Management />
+                    </el-icon>
+                    <span>任岗管理</span>
+                </el-menu-item>
                 <el-menu-item index="/article/manage">
                     <el-icon>
                         <Promotion />
                     </el-icon>
                     <span>用户管理</span>
-                </el-menu-item>
-                <el-menu-item index="/article/salary">
-                    <el-icon>
-                        <Management />
-                    </el-icon>
-                    <span>薪资管理</span>
-                </el-menu-item>
-                <el-menu-item index="/article/repun">
-                    <el-icon>
-                        <Management />
-                    </el-icon>
-                    <span>奖惩管理</span>
-                </el-menu-item>
-                <el-menu-item index="/article/diaodu">
-                    <el-icon>
-                        <Management />
-                    </el-icon>
-                    <span>调度管理</span>
-                </el-menu-item>
-                <el-menu-item index="/article/depart">
-                    <el-icon>
-                        <Management />
-                    </el-icon>
-                    <span>部门管理</span>
-                </el-menu-item>
-                <el-menu-item index="/article/jiuzhi">
-                    <el-icon>
-                        <Management />
-                    </el-icon>
-                    <span>就职情况管理</span>
-                </el-menu-item>
-                <el-menu-item index="/article/post">
-                    <el-icon>
-                        <Management />
-                    </el-icon>
-                    <span>岗位管理</span>
                 </el-menu-item>
                 <el-sub-menu >
                     <template #title>
@@ -180,7 +150,7 @@ const handleCommand = (command)=>{
                 <router-view></router-view>
             </el-main>
             <!-- 底部区域 -->
-           <el-footer>简易人事档案管理系统</el-footer>
+           <el-footer>简易人力资源管理系统</el-footer>
         </el-container>
     </el-container>
 </template>

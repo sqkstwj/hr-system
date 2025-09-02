@@ -60,12 +60,6 @@ import {useTokenStore} from '@/stores/token.js'
 import {useRouter} from 'vue-router'
 const router = useRouter()
 const tokenStore = useTokenStore();
-let radio = ref(1);
-function clickchange(idx) {
-    radio.value = idx;
-    console.log(radio.value);
-}
-
 const login =async ()=>{
     //调用接口,完成登录
    let result =  await userLoginService(registerData.value);
@@ -79,16 +73,8 @@ const login =async ()=>{
    //把得到的token存储到pinia中
    tokenStore.setToken(result.data)
    //跳转到首页 路由完成跳转
-   if(radio==1){
    router.push('/')
-   }
-   else{
-    router.push('/article/repun')
-   }
 }
-
-
-
 
 //定义函数,清空数据模型的数据
 const clearRegisterData = ()=>{
@@ -98,7 +84,6 @@ const clearRegisterData = ()=>{
         rePassword:''
     }
 }
-
 </script>
 
 <template>
@@ -136,7 +121,7 @@ const clearRegisterData = ()=>{
             <!-- 登录表单 -->
             <el-form ref="form" size="large" autocomplete="off" v-else :model="registerData" :rules="rules">
                 <el-form-item>
-                    <h1>人事档案管理系统---登录</h1>
+                    <h1>登录</h1>
                 </el-form-item>
                 <el-form-item prop="adsName">
                     <el-input :prefix-icon="User" placeholder="请输入用户名" v-model="registerData.adsName"></el-input>
@@ -144,12 +129,6 @@ const clearRegisterData = ()=>{
                 <el-form-item prop="password">
                     <el-input name="password" :prefix-icon="Lock" type="password" placeholder="请输入密码" v-model="registerData.password"></el-input>
                 </el-form-item>
-                <div class="my-2 flex items-center text-sm">
-                    <el-radio-group v-model="radio" @change="clickchange">
-                    <el-radio label="1" value="1">管理员</el-radio>
-                    <el-radio label="2" value="2">用户</el-radio>
-                    </el-radio-group>
-                </div>
                 <el-form-item class="flex">
                     <div class="flex">
                         <el-checkbox>记住我</el-checkbox>
